@@ -20,6 +20,9 @@ export default {
       title: 'Event Listing'
     }
   },
+  components: {
+    EventCard
+  },
   async fetch({ store, error }) {
     try {
       await store.dispatch('events/fetchEvents')
@@ -29,9 +32,6 @@ export default {
         message: 'Unable to fetch events at this time. Please try again.'
       })
     }
-  },
-  components: {
-    EventCard
   },
   computed: mapState({
     events: state => state.events.events
